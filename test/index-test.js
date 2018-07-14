@@ -8,9 +8,6 @@ chai.use(chaiHttp);
 
 describe('Index', () => {
   let addCode = chai.request.agent(app);
-  let codeEntry = new CodeEntry({
-    content: 'something'
-  });
 
 
   it('shows the list of code snippet', () => {
@@ -18,7 +15,7 @@ describe('Index', () => {
     .get('/')
     .end((err, res) => {
       res.should.have.status(200);
-      res.text.should.contain('something');
+      res.text.should.contain('My Express App');
     });
   });
 
